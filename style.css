@@ -1,28 +1,30 @@
+/* Logic Trio: a Swiss poster. White paper, one grotesk, flat bands, square corners. */
 :root {
-  --paper: #FAF7F0; --surface: #FFFFFF; --ink: #1B1A17; --muted: #5F5A52; --line: #DAD3C6; --accent: #C8432B;
-  color-scheme: light dark;
+  --paper: #ffffff; --ink: #111111; --soft: #595959; --rule: #111111;
+  --crowns: #f2b705; --on-crowns: #1c1400; --binary: #2747d9; --path: #e8452c;
+  --wide: "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
-  :root { --paper: #121212; --surface: #1D1D1F; --ink: #F2EFE8; --muted: #A8A39A; --line: #34322E; --accent: #FF7F63; }
+  :root { --paper: #0e0e0e; --ink: #f2f2f2; --soft: #a6a6a6; --rule: #f2f2f2; --crowns: #e5ad05; --binary: #3d5cf0; --path: #f05a40; }
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--paper); color: var(--ink);
-  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
-.hero { max-width: 720px; margin: 0 auto; padding: 44px 20px 0; text-align: center; }
-.hero img { width: 88px; height: 88px; border-radius: 20px; border: 1px solid var(--line); }
-.hero h1 { font-family: "New York", "Iowan Old Style", Georgia, serif; font-weight: 700; font-size: 42px; letter-spacing: -0.5px; margin: 14px 0 2px; }
-.hero p { margin: 0; color: var(--muted); font-family: "New York", "Iowan Old Style", Georgia, serif; font-style: italic; }
-nav { margin-top: 22px; padding: 10px 0; font-size: 14px; letter-spacing: 1.2px; text-transform: uppercase;
-  border-top: 1px solid var(--line); border-bottom: 2px solid var(--ink); }
-nav a { color: var(--ink); text-decoration: none; margin: 0 12px; }
-nav a:hover, nav a[aria-current="page"] { color: var(--accent); }
-main { max-width: 720px; margin: 0 auto; padding: 24px 20px 64px; }
-h2 { font-family: "New York", "Iowan Old Style", Georgia, serif; font-weight: 700; font-size: 30px; margin: 28px 0 8px; }
-h3 { font-family: "New York", "Iowan Old Style", Georgia, serif; font-weight: 600; font-size: 20px; margin: 28px 0 4px;
-  padding-top: 18px; border-top: 1px solid var(--line); }
-a { color: var(--accent); }
-ol, ul { padding-left: 22px; }
-li { margin: 4px 0; }
-.card { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); padding: 18px 22px; margin: 18px 0; }
-.muted { color: var(--muted); font-size: 15px; }
-footer { max-width: 720px; margin: 0 auto; text-align: center; color: var(--muted); font-size: 14px; padding: 20px; border-top: 2px solid var(--ink); }
+html { background: var(--paper); }
+body { margin: 0; color: var(--ink); background: var(--paper); font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.mast { max-width: 760px; margin: 0 auto; padding: 32px 20px 0; }
+.mast .date { font: 800 12px/1 var(--wide); letter-spacing: .16em; text-transform: uppercase; }
+.mast h1 { font: 900 clamp(48px, 13vw, 96px)/.88 var(--wide); letter-spacing: -.01em; text-transform: uppercase; margin: 10px 0 18px; font-stretch: expanded; }
+.mast nav { display: flex; gap: 0; border: 3px solid var(--rule); }
+.mast nav a { flex: 1; text-align: center; padding: 12px 6px; text-decoration: none; font: 800 12px/1 var(--wide); letter-spacing: .14em; text-transform: uppercase; }
+.mast nav a + a { border-left: 3px solid var(--rule); }
+.mast nav a[aria-current] { background: var(--ink); color: var(--paper); }
+.stripes a { display: block; padding: 22px 20px; text-decoration: none; }
+.stripes a span { display: block; max-width: 720px; margin: 0 auto; }
+.stripes b { display: block; font: 900 clamp(40px, 11vw, 72px)/1 var(--wide); text-transform: uppercase; }
+.s1 { background: var(--crowns); color: var(--on-crowns); } .s2 { background: var(--binary); color: #fff; } .s3 { background: var(--path); color: #fff; }
+main { max-width: 760px; margin: 0 auto; padding: 8px 20px 40px; }
+h2 { font: 900 30px/1.05 var(--wide); text-transform: uppercase; border-bottom: 3px solid var(--rule); padding-bottom: 10px; margin: 40px 0 16px; }
+h3 { font: 800 15px/1.2 var(--wide); letter-spacing: .1em; text-transform: uppercase; margin: 28px 0 6px; }
+.muted { color: var(--soft); }
+ol.rules { padding-left: 1.2em; } ol.rules li { margin: 4px 0; }
+footer { border-top: 3px solid var(--rule); max-width: 760px; margin: 0 auto; padding: 16px 20px 40px; font: 700 13px/1.4 var(--wide); }
